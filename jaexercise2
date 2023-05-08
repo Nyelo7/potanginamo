@@ -1,0 +1,51 @@
+package javaAbstraction;
+
+import java.util.Scanner;
+
+public class JAExercise2 {
+public static void main(String[] args) {
+	Scanner scn = new Scanner(System.in);
+	System.out.println("enter circle radius: ");
+	float radius = scn.nextFloat();
+	System.out.println("enter rectangle base: ");
+	float base = scn.nextFloat();
+	System.out.println("enter rectangle height: ");
+	float height = scn.nextFloat();
+	Circle myCircle = new Circle(radius,base,height);
+	Rectangle myRectangle = new Rectangle(radius,base,height);
+	System.out.println("circle area is " + myCircle.getArea());
+	System.out.println("rectangle area is " + myRectangle.getArea());
+	
+}
+}
+abstract class Shape {
+	
+	float radius,base,height;
+	Shape(float radius,float base,float height)
+	{
+		this.radius = radius;
+		this.base = base;
+		this.height = height;
+	}
+	abstract float getArea();
+}
+class Circle extends Shape{
+	Circle(float radius, float base, float height) {
+		super(radius, base, height);
+		// TODO Auto-generated constructor stub
+	}
+
+	public float getArea() {
+	return (float) (2 * Math.PI * Math.pow(radius,2));
+	}
+}
+class Rectangle extends Shape{
+	Rectangle(float radius, float base, float height) {
+		super(radius, base, height);
+		// TODO Auto-generated constructor stub
+	}
+
+	public float getArea() {
+	return base * height;
+	}
+}
